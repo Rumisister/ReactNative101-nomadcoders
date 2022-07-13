@@ -55,6 +55,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <StatusBar style="light" />
+
       <View style={styles.city}>
         <Text style={styles.cityName}>{city}</Text>
       </View>
@@ -75,6 +76,7 @@ export default function App() {
         ) : (
           days.map((day, index) => (
             <View key={index} style={styles.day}>
+              <Text style={styles.date}>{new Date(day.dt * 1000).toString().substring(0, 10)}</Text>
               <View
                 style={{
                   flexDirection: "row",
@@ -126,7 +128,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   temp: {
-    marginTop: 50,
     fontSize: 100,
     color: "white",
     fontWeight: "600",
@@ -143,4 +144,8 @@ const styles = StyleSheet.create({
     color: "white",
     fontWeight: "500",
   },
+  date:{
+    fontSize: 20,
+    color: "dimgray",
+  }
 });
